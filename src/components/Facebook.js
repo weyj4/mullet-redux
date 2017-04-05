@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Buttons from './Buttons';
 
 const Styles = {
   flexContainer: {
@@ -10,19 +11,6 @@ const Styles = {
   header: {
     textAlign: 'center'
   },
-  image: {
-    display: 'block',
-    margin: '0 auto 20px'
-  },
-  title: {
-    display: 'block',
-    fontSize: '2em',
-    fontWeight: 700
-  },
-  subtitle: {
-    fontSize: '1em',
-    fontWeight: 300
-  }
 };
 
 export default class Facebook extends Component {
@@ -34,29 +22,9 @@ export default class Facebook extends Component {
     return (
       <div style={Styles.flexContainer}>
         <header style={Styles.header}>
-          <img
-            style={Styles.image}
-            src="/images/mullet_600.png"
-            width="200"
-            alt="Mullet"
-          />
-          <p style={Styles.title}>{this.props.title}</p>
-          <p style={Styles.subtitle}>{this.props.subtitle}</p>
-          <p style={Styles.subtitle}>
-            Created by <a href="http://github.com/lynnaloo/">@lynnaloo</a>
-          </p>
+          <Buttons fetchData={this.props.fetchData} />
         </header>
       </div>
     );
   }
 }
-
-Facebook.propTypes = {
-  subtitle: React.PropTypes.string,
-  title: React.PropTypes.string
-};
-
-Facebook.defaultProps = {
-  title: 'Default Title',
-  subtitle: 'Default Subtitle'
-};
